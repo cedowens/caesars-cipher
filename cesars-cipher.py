@@ -5,6 +5,9 @@ letters2 = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q',
 
 letterslength = len(letters)
 
+if (len(sys.argv) != 3) or '-h' in sys.argv:
+    print("Usage: python3 %s [string to encode] [rotation count]" % sys.argv[0])
+    sys.exit(0)
 
 encodeme = sys.argv[1]
 rotation = sys.argv[2]
@@ -25,7 +28,7 @@ for letter in encodeme:
                 
                     newindexval = indexval + int(rotation)
                     encodedword.append(letters[difference])
-    else:
+    elif letter in letters2:
         for each in letters2:
             if letter == each:
                 indexval = letters2.index(each)
@@ -38,12 +41,19 @@ for letter in encodeme:
                 
                     newindexval = indexval + int(rotation)
                     encodedword.append(letters2[difference])
+    else:
+        encodedword.append(letter)
 
 
 encodedword2 = ','.join(encodedword).replace(",","")
 print("Encoded word is: %s" % encodedword2)
         
         
+       
+
+
+        
+
        
 
 
